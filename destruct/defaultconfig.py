@@ -38,7 +38,10 @@ def get_config(ref_data_dir, user_config):
     # URLs of gene annotations and reference genome
     ###
 
-    ensembl_assembly_url = 'ftp://ftp.ensembl.org/pub/release-'+ensembl_version+'/fasta/homo_sapiens/dna/Homo_sapiens.'+ensembl_genome_version+'.dna.{0}.fa.gz'
+    if ensembl_genome_version != "GRCh38":
+        ensembl_assembly_url = 'ftp://ftp.ensembl.org/pub/release-' + ensembl_version + '/fasta/homo_sapiens/dna/Homo_sapiens.' + ensembl_genome_version + '.' + ensembl_version + '.dna.{0}.fa.gz'
+    else:
+        ensembl_assembly_url = 'ftp://ftp.ensembl.org/pub/release-'+ensembl_version+'/fasta/homo_sapiens/dna/Homo_sapiens.'+ensembl_genome_version+'.dna.{0}.fa.gz'
 
     ensembl_gtf_url = 'ftp://ftp.ensembl.org/pub/release-'+ensembl_version+'/gtf/homo_sapiens/Homo_sapiens.'+ensembl_genome_version+'.'+ensembl_version+'.gtf.gz'
 
